@@ -22,9 +22,9 @@ class User(Base):
 class Comment(Base):
     __tablename__ = 'comments'
     id: Mapped[int] = mapped_column(primary_key=True)
-    user_id: mapped_column[int] = mapped_column(
+    user_id: Mapped[int] = mapped_column(
         ForeignKey('users.id'), nullable=False)
-    text: mapped_column[int] = mapped_column(Text, nullable=False)
+    text: Mapped[int] = mapped_column(Text, nullable=False)
     user: Mapped['User'] = relationship(back_populates='comments')
 
     def __repr__(self) -> str:
